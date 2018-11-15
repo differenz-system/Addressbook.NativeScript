@@ -39,13 +39,14 @@ tns run <platform> --bundle
 
 
 ## Screenshots
-<img src="https://github.com/differenz-system/Addressbook.NativeScript/blob/master/app/assets/screenshots/Android-Login.png" width="280"> 
-<img src="https://github.com/differenz-system/Addressbook.NativeScript/blob/master/app/assets/screenshots/Android-Display.png" width="280"> 
-<img src="https://github.com/differenz-system/Addressbook.NativeScript/blob/master/app/assets/screenshots/Android-Create.png" width="280"> 
 
-<img src="https://github.com/differenz-system/Addressbook.NativeScript/blob/master/app/assets/screenshots/iPhone-X-Login.png" width="280"> 
-<img src="https://github.com/differenz-system/Addressbook.NativeScript/blob/master/app/assets/screenshots/iPhone-X-Display.png" width="280"> 
-<img src="https://github.com/differenz-system/Addressbook.NativeScript/blob/master/app/assets/screenshots/iPhone-X-Create.png" width="280"> 
+Android Screenshots
+
+<img src="https://github.com/differenz-system/Addressbook.NativeScript/blob/master/app/assets/screenshots/Android-Login.png" width="280"> <img src="https://github.com/differenz-system/Addressbook.NativeScript/blob/master/app/assets/screenshots/Android-Display.png" width="280"> <img src="https://github.com/differenz-system/Addressbook.NativeScript/blob/master/app/assets/screenshots/Android-Create.png" width="280"> 
+
+IOS Screenshots
+
+<img src="https://github.com/differenz-system/Addressbook.NativeScript/blob/master/app/assets/screenshots/iPhone-X-Login.png" width="280"> <img src="https://github.com/differenz-system/Addressbook.NativeScript/blob/master/app/assets/screenshots/iPhone-X-Display.png" width="280"> <img src="https://github.com/differenz-system/Addressbook.NativeScript/blob/master/app/assets/screenshots/iPhone-X-Create.png" width="280"> 
 
 ## Support
 If you've found an error in this sample, please [report an issue](https://github.com/differenz-system/Addressbook.NativeScript/issues/new). You can also send your feedback and suggestions at info@differenzsystem.com
