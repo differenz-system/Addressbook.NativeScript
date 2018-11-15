@@ -26,8 +26,6 @@ export default {
   methods: {
     onButtonTap() {
       console.log(this.username, this.password);
-      // this.$validator.validateAll().then(result => {
-      //   if (result) {
       if (!this.username.trim() && !this.password.trim()) {
         alert({
           title: "Error",
@@ -53,7 +51,10 @@ export default {
           console.log("Alert dialog closed");
         });
       } else if (this.username == "admin" && this.password == "admin") {
-        this.$navigateTo(Dashboard);
+        this.$navigateTo(Dashboard,{
+          animated: true,
+          clearHistory: true
+        });
       } else {
         alert({
           title: "Error",
@@ -63,10 +64,6 @@ export default {
           console.log("Alert dialog closed");
         });
       }
-      // alert("Invalid Username or Password");
-      // this.console.error('Invalid Username or Password');
-      //   }
-      // });
     }
   }
 };

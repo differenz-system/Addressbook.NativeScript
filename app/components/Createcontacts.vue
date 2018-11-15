@@ -1,13 +1,13 @@
 <template>
     <Page>
         <ActionBar  :title="title" class="action-bar">
-            <NavigationButton text="Go Back" 
+            <NavigationButton 
             ios.systemIcon="9" ios.position="left"
             android.systemIcon="ic_menu_back"
             android.position="actionBar"
                 @tap="onNavBtnTap" />
-                <ActionItem ios.systemIcon="3" ios.position="right" android.systemIcon="ic_menu_save" @tap="saveContact" />
-                <ActionItem ios.systemIcon="1" ios.position="right" android.systemIcon="ic_menu_close_clear_cancel" @tap="onCancel" />
+                  <ActionItem ios.systemIcon="3" ios.position="right" android.systemIcon="ic_menu_save" @tap="saveContact" />
+                  <ActionItem ios.systemIcon="1" ios.position="right" android.systemIcon="ic_menu_close_clear_cancel" @tap="onCancel" />
         </ActionBar>
         <ScrollView>
             <StackLayout class="home-panel">
@@ -17,7 +17,6 @@
                 <Label v-if="!invalidMobile" :text="(contact.mobile)?'Please enter valid mobile no':'Please enter mobile no'" class="error" />
                 <TextField v-model="contact.email" hint="Enter Email Address" keyboardType="email" @textChange="checkEmail" />
                 <Label v-if="!invalidEmail" :text="(contact.email)?'Please enter valid email address':'Please enter email address'" class="error" />
-                <!-- <Button text="Save" @tap="saveContact" /> -->
             </StackLayout>
         </ScrollView>
     </Page> 

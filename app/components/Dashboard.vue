@@ -1,11 +1,6 @@
 <template>
     <Page>
         <ActionBar  title="Contacts" class="action-bar">
-            <!-- <NavigationButton text="Go Back" 
-            ios.systemIcon="9" ios.position="left"
-            android.systemIcon="ic_menu_back"
-            android.position="actionBar"
-                @tap="onNavBtnTap" /> -->
             <ActionItem ios.systemIcon="4" android.systemIcon="ic_menu_add" ios.position="right" @tap="addContact" ></ActionItem>
         </ActionBar>
         <ScrollView> 
@@ -13,47 +8,26 @@
                 style="height:100%">
                 <v-template>
                   <StackLayout orientation="horizontal" class="list-data">
-                    <StackLayout class="list-text">
-                        <Label :text="contact.first_name + ' ' + contact.last_name" class="list-text-heading" />
-                        <Label :text="contact.mobile"  />
-                        <Label :text="contact.email" />
-                    </StackLayout>
-                    <StackLayout orientation="horizontal" class="list-action-button">
-                      <Image class="action-button" @tap="editContact(index)" src="~/assets/images/if_ic_mode_edit_48px_352547.png" stretch="none" />
-                      <Image class="action-button" @tap="deleteContact(index)" src="~/assets/images/if_ic_delete_48px_352303.png" stretch="none" />
-                    </StackLayout>
+                    
+                      <WrapLayout>
+                      <WrapLayout>
+                      <StackLayout class="list-text" width="70%">
+                          <Label :text="contact.first_name + ' ' + contact.last_name" class="list-text-heading" />
+                          <Label :text="contact.mobile"  />
+                          <Label :text="contact.email" />
+                      </StackLayout>
+                      </WrapLayout>
+                      
+                      <StackLayout orientation="horizontal"  class="list-action-button">
+                        <WrapLayout>
+                        <Image class="action-button" height="30"  @tap="editContact(index)" src="~/assets/images/if_ic_mode_edit_48px_352547.png" stretch="aspectFit" />
+                        <Image class="action-button" height="30" @tap="deleteContact(index)" src="~/assets/images/if_ic_delete_48px_352303.png" stretch="aspectFit" />
+                        </WrapLayout>
+                      </StackLayout>
+                      </WrapLayout>
                   </StackLayout>
                 </v-template>
             </ListView>
-
-            <!-- <GridLayout orientation="vertical" rows="auto, *">
-       <RadListView ref="listView"
-                   for="item in itemList"
-                   swipeActions="true"
-                   @loaded="onLoaded"
-                   @itemSwipeProgressStarted="onSwipeStarted">
-        <v-template>
-          <StackLayout class="item" orientation="vertical">
-            <Label class="big" :text="item.name"></Label>
-            <Label :text="item.description"></Label>
-          </StackLayout>
-        </v-template>
-
-        <v-template name="itemswipe">
-          <GridLayout columns="auto, *, auto" backgroundColor="White">
-            <StackLayout id="mark-view" col="0" class="swipe-item left"
-                         orientation="horizontal" @tap="onLeftSwipeClick">
-              <Label text="mark" verticalAlignment="center" horizontalAlignment="center"/>
-            </StackLayout>
-            <StackLayout id="delete-view" col="2" class="swipe-item right"
-                         orientation="horizontal" @tap="onRightSwipeClick">
-              <Label text="delete" verticalAlignment="center" horizontalAlignment="center" />
-            </StackLayout>
-          </GridLayout>
-        </v-template>
-      </RadListView>
-    </GridLayout> -->
-             
          </ScrollView>
         
     </Page> 
@@ -63,14 +37,7 @@
 import Contact from "./Createcontacts";
 export default {
   data() {
-    return {
-      selectedObject: {},
-      itemList: [
-        {name: 'Item 1', description: 'Item 1 description'},
-        {name: 'Item 2', description: 'Item 2 description'},
-        {name: 'Item 3', description: 'Item 3 description'},
-      ],
-    };
+    return {};
   },
   methods: {
     onItemTap: function(args) {
@@ -115,33 +82,7 @@ export default {
           this.$store.commit("delete", index);
         }
       });
-      //  
     },
-    onSwipeStarted ({ data, object }) {
-      console.log(`Swipe started`);
-      const swipeLimits = data.swipeLimits;
-      const swipeView = object;
-      const leftItem = swipeView.getViewById('mark-view');
-      const rightItem = swipeView.getViewById('delete-view');
-      swipeLimits.left = leftItem.getMeasuredWidth();
-      swipeLimits.right = rightItem.getMeasuredWidth();
-      swipeLimits.threshold = leftItem.getMeasuredWidth() / 2;
-    },
-    onLeftSwipeClick (event) {
-      console.log('left action tapped');
-      this.$refs.listView.notifySwipeToExecuteFinished();
-    },
-    onRightSwipeClick ({ object }) {
-      console.log('right action tapped');
-      // remove item
-      this.itemList.splice(this.itemList.indexOf(object.bindingContext), 1);
-      this.$refs.listView.notifySwipeToExecuteFinished();
-    },
-    onLoaded () {
-      setTimeout(() => {
-        this.itemList = getItemList(20);
-      }, 0);
-    }
   },
   computed: {
     contactList(){
@@ -168,27 +109,19 @@ ActionBar {
   padding:10;
 }
 
-.list-data .list-text {
-  width:75%;
-}
-
 .list-data .list-text .list-text-heading {
   font-weight:bolder;
   font-size:20;
 }
 
 .list-data .list-action-button {
-  width:25%;
   vertical-align: center;
-  /* text-align:right;
-  align-items:right; */
   display: flex;
   flex-direction: row-reverse;
   align-items: flex-end;
 }
 
 .list-data .action-button{
-  padding: 5;
   margin: 5;
 }
 
