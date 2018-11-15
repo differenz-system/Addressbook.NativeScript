@@ -1,0 +1,26 @@
+// NativeScript core theme
+// @see https://docs.nativescript.org/ui/theme
+@import '~nativescript-theme-core/scss/light';
+
+// Override variables here
+
+@import '~nativescript-theme-core/scss/index';
+
+// Global SCSS styling
+// @see https://docs.nativescript.org/ui/styling
+
+.fa {
+  font-family: FontAwesome, fontawesome-webfont;
+  color : #000 ;
+}
+
+.fa-glass:before {
+  content: "\f000";
+}
+.fa-music:before {
+  content: "\f001";
+}
+
+// .fa {
+//    font-family: FontAwesome;
+// }
